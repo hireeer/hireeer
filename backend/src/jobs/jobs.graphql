@@ -1,0 +1,45 @@
+type Job {
+  id: Int!
+  label: String!
+  description: String!
+
+  opening_at: String!
+  closing_at: String!
+  created_at: String!
+  updated_at: String
+  deleted_at: String
+}
+
+input CreateJobInput {
+  label: String!
+  description: String!
+
+  opening_at: String!
+  closing_at: String!
+  created_at: String!
+  updated_at: String
+  deleted_at: String
+}
+
+input UpdateJobInput {
+  id: Int!
+  label: String
+  description: String
+
+  opening_at: String
+  closing_at: String
+  created_at: String
+  updated_at: String
+  deleted_at: String
+}
+
+type Query {
+  jobs: [Job]!
+  job(id: Int!): Job
+}
+
+type Mutation {
+  createJob(createJobInput: CreateJobInput!): Job!
+  updateJob(updateJobInput: UpdateJobInput!): Job!
+  removeJob(id: Int!): Job
+}
